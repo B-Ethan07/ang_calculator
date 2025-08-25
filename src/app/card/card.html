@@ -1,0 +1,11 @@
+<div class="card">
+  <img [src]="picture" alt="Image de {{ name }}">
+  
+  <h2>Hello {{ name }}</h2>
+  <p>Âge : {{ age }}</p>
+
+  <label for="citation">Citation : </label>
+  <input id="citation" [(ngModel)]="citation" >
+  
+  <p class="citation-display">“{{ citation }}”</p>
+</div>

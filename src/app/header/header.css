@@ -1,19 +1,27 @@
 header {
   text-align: center;
-  background-color: #EEE;
+  background-color: #f0f4ff; /* Bleu très pâle pour plus de douceur */
   margin-bottom: 20px;
-  padding: 10px;
+  padding: 8px;
 }
+
+h1 {
+  color: #1a3dc1; /* Bleu profond mais légèrement plus doux que #1100a7 */
+  font-size: 2.5rem;
+}
+
 a {
   margin: 0 10px;
-  color: #333;
+  color: #3a5fe3; /* Bleu moyen, lisible sur fond clair */
+  font-size: 1.2rem;
   text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .active {
-  color: #666;
+  color: #1e40af; /* Bleu un peu plus foncé pour souligner l'élément actif */
   text-decoration: underline;
 }

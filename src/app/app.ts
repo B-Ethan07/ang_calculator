@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { CalculatorComponent } from './calculator-component/calculator-component';
-import { CardComponent } from "./card/card";
 import { Header } from './header/header';
-import { Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CalculatorComponent, Header, CardComponent],
+  imports: [RouterOutlet, Header, FormsModule, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

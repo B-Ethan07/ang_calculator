@@ -35,6 +35,6 @@ result?: number = 0;
   reset(){
     this.result = 0;
     this.random1 = 0;
-    this.random2 =0;
+    this.random2 = 0;
   }
 }

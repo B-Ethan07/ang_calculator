@@ -1,0 +1,48 @@
+<!-- Produits sans prix -->
+<h3>Produits sans prix</h3>
+<ul class="product-list">
+  @for (product of products; track product.id) {
+    @if (product.price === null) {
+      <li class="product no-price" [ngClass]="'no-price'">
+        {{ product.name }} - Prix indisponible
+      </li>
+    }
+  } @empty {
+    <li class="empty">Aucun produit trouvé</li>
+  }
+</ul>
+
+<!-- Produits en promotion -->
+<h3>Produits en promotion</h3>
+<ul class="product-list">
+  @for (product of products; track product.id) {
+    @if (product.promo && product.price !== null) {
+      <li class="product promo"
+          [ngClass]="'promo'"
+          [ngStyle]="{ color: 'green' }">
+        {{ product.name }} - {{ product.price }} € (Promo)
+      </li>
+    }
+  } @empty {
+    <li class="empty">Aucun produit trouvé</li>
+  }
+</ul>
+
+<!-- Produits sans promo mais avec prix -->
+<h3>Produits hors promo</h3>
+<ul class="product-list">
+  @for (product of products; track product.id) {
+    @if (!product.promo && product.price !== null) {
+      <li class="product standard" [ngClass]="'standard'">
+        {{ product.name }} - {{ product.price }} €
+      </li>
+    }
+  } @empty {
+    <li class="empty">Aucun produit trouvé</li>
+  }
+</ul>
+
+<!-- Message si la liste complète est vide -->
+@if (products.length === 0) {
+  <div class="empty">Liste de produits vide</div>
+}

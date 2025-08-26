@@ -1,11 +1,14 @@
 <div class="card">
-  <img [src]="picture" alt="Image de {{ name }}">
-  
-  <h2>Hello {{ name }}</h2>
-  <p>Âge : {{ age }}</p>
+  <img [src]="user.imageUrl" alt="Photo de {{ user.name }}">
+  <h2>{{ user.name }}</h2>
+  <p>Âge : {{ user.age }}</p>
 
-  <label for="citation">Citation : </label>
-  <input id="citation" [(ngModel)]="citation" >
-  
-  <p class="citation-display">“{{ citation }}”</p>
+  <label for="quote">Ta citation :</label>
+  <input id="quote" type="text" [(ngModel)]="user.quote">
+
+  <blockquote *ngIf="user.quote">
+    "{{ user.quote }}"
+  </blockquote>
+
+  <button (click)="showAlert()">Dis bonjour</button>
 </div>

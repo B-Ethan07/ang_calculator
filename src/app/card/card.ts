@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { User } from '../models/user';
 import { CommonModule } from '@angular/common';
+import { Button } from '../button/button';
+
 
 @Component({
   selector: 'app-card',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, Button ],
   templateUrl: './card.html',
   styleUrls: ['./card.css'] // attention à "style**Urls**"
 })

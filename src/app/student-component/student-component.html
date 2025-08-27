@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Liste des Étudiants</h2>
+
+  <app-search-component />
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Âge</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (student of students; track $index) {
+      <tr>
+        <td>{{ student.id }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.grade }}</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+</div>

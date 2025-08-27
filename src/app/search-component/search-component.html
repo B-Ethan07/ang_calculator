@@ -1,0 +1,9 @@
+<div class="search-container">
+    <input
+      type="text"
+      placeholder="Rechercher par nom..."
+      (keyup.enter)="onClick()"
+      [(ngModel)]="studentName"/>
+    <button (click)="onClick()" >🔍</button>
+    <button id="reset" (click)="onReset()"> Reset</button>
+  </div>

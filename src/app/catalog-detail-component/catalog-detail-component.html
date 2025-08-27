@@ -1,0 +1,26 @@
+
+// TODO : Complete this component to display product details
+
+@if (product) {
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ product.category }}</h6>
+    <p class="card-text">
+      Prix :
+      @if (product.price === null) {
+        Non disponible
+      } @else {
+        {{ product.price | currency:'EUR':'symbol':'1.2-2' }}
+      }
+    </p>
+@if (product.promo) {
+    <p class="text-success">
+      En promotion !</p>
+    }
+  </div>
+</div>
+} @else {
+<p>Produit non trouvé.</p>
+}
+

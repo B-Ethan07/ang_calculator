@@ -5,13 +5,10 @@
 
   <label for="quote">Ta citation :</label>
   <input id="quote" type="text" [(ngModel)]="user.quote">
-
-  <blockquote *ngIf="user.quote">
+@if (user.quote){
+  <blockquote>
     "{{ user.quote }}"
   </blockquote>
-
-  <app-button
-  label="Orange"
-  [style]="{ 'background-color': 'orange', color: 'white' }">
-</app-button>
+}
+  <app-button (showLabel)="dataReceiveFromChild($event)" [label]="'Blue'" [style]="{ backgroundColor: 'lightblue', border: 'none', padding: '10px', cursor: 'pointer' }"></app-button>
 </div>

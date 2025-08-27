@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -10,5 +10,8 @@ import { Component, Input } from '@angular/core';
 export class Button {
   @Input() label: string = 'Click Me';
   @Input() style: { [key: string]: string } = {};
-  
+  @Output() showLabel:EventEmitter<string> = new EventEmitter();
+  sendDataToParent(): void {
+    this.showLabel.emit(`label du bouton : ${this.label}`)
+   }
 }

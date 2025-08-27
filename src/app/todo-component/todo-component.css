@@ -1,0 +1,58 @@
+/* Conteneur global */
+:host {
+  display: block;
+  max-width: 500px;
+  margin: 50px auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Textarea */
+textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+/* Bouton */
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Liste des todos */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  background-color: #f8f9fa;
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+/* Message vide */
+li:only-child {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+}

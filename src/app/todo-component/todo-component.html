@@ -1,0 +1,13 @@
+<input type="text" (input)="onInputChange($event)" (keyup.enter)="addTask()" placeholder="Enter a new task">
+<app-button [label]="'Add Todo'" (click)="addTask()" [style]="{ 'background-color': '#1a3dc1', 'color': 'white' }"></app-button>
+<ol>
+  @if (tasks.length === 0) {
+    <li>No todos yet!</li>
+  } @else {
+    @for (task of tasks; track id) {
+      <li><input type="checkbox" (change)="toggleDone()"/>{{ task }}</li>
+    }
+  }
+</ol>
+<app-button [label]="'Clear Todos'" (click)="tasks = []" [style]="{ 'background-color': '#c11a1a', 'color': 'white' }"></app-button>
+<!-- [(ngModel)]="newTask" -->

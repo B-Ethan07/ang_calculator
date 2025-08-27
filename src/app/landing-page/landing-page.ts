@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { Button } from '../button/button';
 
 
 @Component({
   selector: 'app-landing-page',
-  imports: [ Button, RouterLink ],
+  imports: [ Button ],
   templateUrl: './landing-page.html',
   styleUrl: './landing-page.css'
 })

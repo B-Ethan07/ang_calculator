@@ -1,12 +1,27 @@
+<!-- Barre de sélection de catégorie -->
+<div class="search-bar">
+  <label for="category-filter">Filtrer par catégorie :</label>
+  <select id="category-filter" [(ngModel)]="categoryFilter">
+    <option value="">Toutes les catégories</option>
+    <option value="Informatique">Informatique</option>
+    <option value="Téléphonie">Téléphonie</option>
+    <option value="Audio">Audio</option>
+    <option value="Périphériques">Périphériques</option>
+    <option value="Écrans">Écrans</option>
+    <option value="Impression">Impression</option>
+    <option value="Stockage">Stockage</option>
+    <option value="Accessoires">Accessoires</option>
+  </select>
+</div>
+
 <!-- Produits sans prix -->
 <h3>Produits sans prix</h3>
 <ul class="product-list">
-  @for (product of products; track product.id) {
-    @if (product.price === null) {
-      <li class="product no-price" [ngClass]="'no-price'">
-        {{ product.name }} - Prix indisponible
-      </li>
-    }
+  @for (product of filteredNoPrice; track product.id) {
+    <li class="product no-price">
+      {{ product.name }} - {{ product.category }} - Prix indisponible
+        <a [routerLink]="['/catalog-details', product.id]" routerLinkActive="active">Détails</a>
+    </li>
   } @empty {
     <li class="empty">Aucun produit trouvé</li>
   }
@@ -15,34 +30,25 @@
 <!-- Produits en promotion -->
 <h3>Produits en promotion</h3>
 <ul class="product-list">
-  @for (product of products; track product.id) {
-    @if (product.promo && product.price !== null) {
-      <li class="product promo"
-          [ngClass]="'promo'"
-          [ngStyle]="{ color: 'green' }">
-        {{ product.name }} - {{ product.price }} € (Promo)
-      </li>
-    }
+  @for (product of filteredPromos; track product.id) {
+    <li class="product promo">
+      {{ product.name }} - {{ product.category }} - {{ product.price }} € (Promo)
+      <a [routerLink]="['/catalog-details', product.id]" routerLinkActive="active">Détails</a>
+    </li>
   } @empty {
     <li class="empty">Aucun produit trouvé</li>
   }
 </ul>
 
-<!-- Produits sans promo mais avec prix -->
+<!-- Produits hors promo -->
 <h3>Produits hors promo</h3>
 <ul class="product-list">
-  @for (product of products; track product.id) {
-    @if (!product.promo && product.price !== null) {
-      <li class="product standard" [ngClass]="'standard'">
-        {{ product.name }} - {{ product.price }} €
-      </li>
-    }
+  @for (product of filteredStandard; track product.id) {
+    <li class="product standard">
+      {{ product.name }} - {{ product.category }} - {{ product.price }} €
+      <a [routerLink]="['/catalog-details', product.id]" routerLinkActive="active">Détails</a>
+    </li>
   } @empty {
     <li class="empty">Aucun produit trouvé</li>
   }
 </ul>
-
-<!-- Message si la liste complète est vide -->
-@if (products.length === 0) {
-  <div class="empty">Liste de produits vide</div>
-}

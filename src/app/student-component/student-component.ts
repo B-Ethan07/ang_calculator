@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { Student } from '../models/student';
 import { SearchComponent } from '../search-component/search-component';
 import { ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-student-component',

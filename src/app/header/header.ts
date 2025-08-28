@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
 import { RouterLink } from '@angular/router';
-import { SearchComponent } from '../search-component/search-component';
 
 
 @Component({
@@ -9,7 +8,6 @@ import { SearchComponent } from '../search-component/search-component';
   imports: [
     RouterLink,
     RouterLinkActive,
-    SearchComponent
   ],
   templateUrl: './header.html',
   styleUrl: './header.css'

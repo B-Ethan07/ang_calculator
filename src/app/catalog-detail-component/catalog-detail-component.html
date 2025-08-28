@@ -1,26 +1,31 @@
-
-// TODO : Complete this component to display product details
-
-<!-- @if (product) {
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">{{ product.name }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ product.category }}</h6>
-    <p class="card-text">
-      Prix :
-      @if (product.price === null) {
-        Non disponible
-      } @else {
-        {{ product.price | currency:'EUR':'symbol':'1.2-2' }}
-      }
-    </p>
-@if (product.promo) {
-    <p class="text-success">
-      En promotion !</p>
-    }
+@if (product) {
+  <div class="product-card">
+    <h2>Détails du produit</h2>
+    <div class="card">
+      <div class="card-header">
+        <h3>{{ product.name }}</h3>
+        <span class="category">{{ product.category }}</span>
+      </div>
+      <div class="card-body">
+        @if (product.price !== null) {
+          <p><strong>Prix :</strong> {{ product.price }} €</p>
+        } @else {
+          <p><strong>Prix :</strong> Indisponible</p>
+        }
+        <p><strong>Promotion :</strong>
+          <span [ngClass]="product.promo ? 'promo' : 'no-promo'">
+            {{ product.promo ? 'Oui 🎉' : 'Non' }}
+          </span>
+        </p>
+      </div>
+      <div class="card-footer">
+        <a routerLink="/catalog">← Retour au catalogue</a>
+      </div>
+    </div>
   </div>
-</div>
 } @else {
-<p>Produit non trouvé.</p>
+  <div class="not-found">
+    <h3>Produit introuvable</h3>
+    <a routerLink="/catalog">← Retour au catalogue</a>
+  </div>
 }
- -->

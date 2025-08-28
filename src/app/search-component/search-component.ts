@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Button } from "../button/button";
 
 @Component({
   selector: 'app-search-component',
-  imports: [FormsModule, Button],
+  imports: [FormsModule],
   templateUrl: './search-component.html',
   styleUrl: './search-component.css'
 })

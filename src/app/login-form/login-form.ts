@@ -4,22 +4,24 @@ import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
+  standalone: true,
   imports: [ FormsModule, CommonModule ],
   templateUrl: './login-form.html',
   styleUrl: './login-form.css'
 })
 export class LoginForm {
 
-  email!: string;
-  password!: string;
+  email: string = '';
+  password: string = '';
+  formSubmitted = false;
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      console.log(form.value); // { username: '...', password: '...' }
+      this.formSubmitted = true;
+      console.log(form.value);
+      // Appel API ici si besoin
     }
   }
 
-  sendContact(){
 
-  }
 }

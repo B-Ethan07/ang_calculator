@@ -17,11 +17,15 @@ export class PostService {
     return this.http.get<Post[]>(`${this.baseUrl}/posts`);
   }
 
+  getPost(): Observable<Post>{
+    return this.http.get<Post[]>(`${this.baseUrl}/posts/${id}`)
+  }
+
   createPost(posts:Post): Observable<Post> {
    return this.http.post<Post>(`${this.baseUrl}/posts`, posts);
   }
   updatePost(id: number, posts:Post): Observable<Post> {
-    return this.http.put<Post>(`${this.baseUrl}/posts${id}`, posts);
+    return this.http.put<Post>(`${this.baseUrl}/posts/${id}`, posts);
   }
   deletePost(id: number): Observable<void> {
    return this.http.delete<void>(`${this.baseUrl}/posts/${id}`);

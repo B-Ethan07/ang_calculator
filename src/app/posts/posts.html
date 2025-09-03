@@ -1,0 +1,31 @@
+< class="container mt-4">
+  <h2 class="mb-4">Liste des Posts</h2>
+
+  <!-- Message d'erreur -->
+  @if (errorMessage) {
+    <div class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  }
+  <a [routerLink]="'posts/create'" class="btn btn-sm btn-outline-secondary me-2">Crée un post</a>
+  <!-- Liste des posts -->
+  <div class="row">
+    @for (post of posts; track post.id) {
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title text-primary">{{ post.title }}</h5>
+            <p class="card-text">{{ post.body }}</p>
+          </div>
+          <div class="card-footer text-end">
+            <a  class="btn btn-sm btn-primary">Voir</a>
+            <a >Modifier</a>
+            <a class="btn btn-sm btn-danger">Supprimer</a>
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <p class="text-muted">Aucun post à afficher</p>
+    }
+  </div>
+</div>

@@ -8,7 +8,7 @@ import { Route, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-catalog-component',
-  imports: [CommonModule, Button, FormsModule, RouterModule ],
+  imports: [CommonModule, FormsModule, RouterModule ],
   templateUrl: './catalog-component.html',
   styleUrl: './catalog-component.css'
 })

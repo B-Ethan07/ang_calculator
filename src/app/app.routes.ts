@@ -8,6 +8,7 @@ import { StudentComponent } from './student-component/student-component';
 import { SearchComponent } from './search-component/search-component';
 import { CatalogDetailComponent } from './catalog-detail-component/catalog-detail-component';
 import { LoginForm } from './login-form/login-form';
+import { PokemonList } from './pokemon-list/pokemon-list';
 
 export const routes: Routes = [
     { path: 'card', component: CardComponent },
@@ -19,7 +20,7 @@ export const routes: Routes = [
     { path: 'students/:studentName', component: StudentComponent},
     { path: 'search', component: SearchComponent},
     { path: 'login', component: LoginForm },
+    { path: 'pokemon', component: PokemonList },
     { path: '', component: LandingPage},
     { path: '**', redirectTo: '' },
-    
 ];

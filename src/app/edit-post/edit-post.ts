@@ -66,4 +66,7 @@ export class EditPost {
       }
     });
   }
+  onReturn(): void {
+  this.router.navigate(['/posts']);
+  }
 }

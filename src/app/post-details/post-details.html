@@ -1,1 +1,18 @@
-<p>post-details works!</p>
+<div class="container mt-4">
+  <a (click)="onReturn()" class="btn btn-link">&larr; Retour à la liste</a>
+
+  <div *ngIf="isLoading" class="text-center my-4">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p>Chargement du post...</p>
+  </div>
+
+  <div *ngIf="post" class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title text-primary">{{ post.title }}</h2>
+      <p class="card-text">{{ post.body }}</p>
+    </div>
+    <div class="card-footer text-muted">
+      <strong>User ID :</strong> {{ post.userId }}
+    </div>
+  </div>
+</div>

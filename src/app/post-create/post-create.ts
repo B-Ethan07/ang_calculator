@@ -49,4 +49,7 @@ export class PostCreate {
       }
     })
   }
+  onReturn(): void {
+  this.router.navigate(['/posts']);
+}
 }

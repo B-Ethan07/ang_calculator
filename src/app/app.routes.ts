@@ -10,9 +10,8 @@ import { CatalogDetailComponent } from './catalog-detail-component/catalog-detai
 import { LoginForm } from './login-form/login-form';
 import { PokemonList } from './pokemon-list/pokemon-list';
 import { Posts } from './posts/posts';
-import { PostCreate } from './post-create/post-create';
+import { PostForm } from './post-form/post-form';
 import { PostDetails } from './post-details/post-details';
-import { EditPost } from './edit-post/edit-post';
 
 export const routes: Routes = [
     { path: 'card', component: CardComponent },
@@ -25,8 +24,8 @@ export const routes: Routes = [
     { path: 'search', component: SearchComponent},
     { path: 'login', component: LoginForm },
     { path: 'pokemon', component: PokemonList },
-    { path: 'posts/:id/edit', component: PostCreate },
-    { path: 'posts/create', component: PostCreate },
+    { path: 'posts/:id/edit', component: PostForm },
+    { path: 'posts/create', component: PostForm },
     { path: 'posts/:id', component: PostDetails},
     { path: 'posts', component: Posts },
     { path: '', component: LandingPage},

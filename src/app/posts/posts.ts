@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 export class Posts implements OnInit {
   posts!: Post[];
   errorMessage = '';
+  deletedPost: number[] = [];
 
   constructor(
     private postService: PostsService,
@@ -35,7 +36,7 @@ export class Posts implements OnInit {
     this.postService.deletePost(id).subscribe({
       next: () => {
         this.toastr.success('Post supprimé avec succès');
-        this.posts = this.posts.filter(post => post.id !== id); // mise à jour locale
+        this.deletedPost.push(id) // mise à jour locale
       },
       error: () => {
         this.toastr.error('Échec de la suppression du post');

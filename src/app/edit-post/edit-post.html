@@ -1,7 +1,7 @@
 <div class="container mt-4">
-  <h2>Créer un nouveau post</h2>
+  <h2>Modifier le post</h2>
 
-  <form (ngSubmit)="onSubmit()" #postForm="ngForm">
+  <form (ngSubmit)="onSubmit()" #editForm="ngForm">
     <div class="mb-3">
       <label for="title" class="form-label">Titre</label>
       <input
@@ -25,8 +25,8 @@
         id="body"
         name="body"
         class="form-control"
-        [(ngModel)]="post.body"
         rows="5"
+        [(ngModel)]="post.body"
         required
         #body="ngModel"
         [class.is-invalid]="body.invalid && body.touched"
@@ -36,8 +36,8 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="postForm.invalid || isSubmitting">
-      {{ isSubmitting ? 'Création...' : 'Créer le post' }}
+    <button type="submit" class="btn btn-primary" [disabled]="editForm.invalid || isSubmitting">
+      {{ isSubmitting ? 'Modification...' : 'Enregistrer les modifications' }}
     </button>
   </form>
 </div>

@@ -1,34 +1,62 @@
-import { PostService } from './../common/post-service';
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../models/Post.interface';
+import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { RouterLink } from "../../../node_modules/@angular/router/router_module.d";
-
+import { PostsService } from '../common/post-service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.html',
-  imports: [RouterLink],
-  styleUrls: ['./posts.css']  // fixed plural here
+  styleUrls: ['./posts.css'],
+  imports: [ CommonModule, RouterLink ]
 })
 export class Posts implements OnInit {
   posts!: Post[];
   errorMessage = '';
 
-  constructor(private postService: PostService, private toastr: ToastrService) {}
+  constructor(
+    private postService: PostsService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.postService.getPost().subscribe({
+    this.postService.getPosts().subscribe({
       next: (data) => (this.posts = data),
       error: (err) => {
-         this.toastr.error('Erreur serveur');
+        this.toastr.error('Erreur serveur');
+        this.errorMessage = 'Impossible de charger les posts.';
       },
     });
-  
-    this.postService.createPost({ id: 1, title: "Ethan", body: "Hello World", userId: 1 })
-      .subscribe({
-        next: newPost => console.log('Créé :', newPost),
-        error: err => console.error('Erreur de création', err)
-      });
-    }
+  }
+  onDelete(id: number): void {
+  if (confirm('Êtes-vous sûr de vouloir supprimer ce post ?')) {
+    this.postService.deletePost(id).subscribe({
+      next: () => {
+        this.toastr.success('Post supprimé avec succès');
+        this.posts = this.posts.filter(post => post.id !== id); // mise à jour locale
+      },
+      error: () => {
+        this.toastr.error('Échec de la suppression du post');
+      }
+    });
+  }
+}
+onEdit(id: number): void {
+  this.router.navigate(['/posts/edit/', id]);
+}
+
+onView(id: number): void {
+  this.router.navigate(['/posts', id]);
+}
+
+
+  onCreate() {
+    this.router.navigate(['posts/create']);
+  }
+
+  trackById(index: number, post: Post): number {
+  return post.id ?? index; // fallback si id est undefined
+  }
 }

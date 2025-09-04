@@ -25,7 +25,7 @@ export const routes: Routes = [
     { path: 'search', component: SearchComponent},
     { path: 'login', component: LoginForm },
     { path: 'pokemon', component: PokemonList },
-    { path: 'posts/edit/:id', component: EditPost },
+    { path: 'posts/:id/edit', component: PostCreate },
     { path: 'posts/create', component: PostCreate },
     { path: 'posts/:id', component: PostDetails},
     { path: 'posts', component: Posts },

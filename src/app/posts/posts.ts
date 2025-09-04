@@ -44,7 +44,7 @@ export class Posts implements OnInit {
   }
 }
 onEdit(id: number): void {
-  this.router.navigate(['/posts/edit/', id]);
+  this.router.navigate([`posts/${id}/edit`]);
 }
 
 onView(id: number): void {
